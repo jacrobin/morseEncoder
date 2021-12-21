@@ -1,0 +1,40 @@
+#pylint: disable=missing-final-newline
+#pi Morse encoder w/ buzzer tone
+#Reads a text file then encodes
+#each character into a buzz tone
+from gpiozero import Buzzer
+from time import sleep
+#buzzer = Buzzer(17)
+
+dotTU = .1
+dashTU = .3
+wordTU = .7
+ddTU = .1
+letterTU = .1
+print("Welcome to the Morse Encoder!")
+print("What would you like to do?")
+print("Press 1. for Text-to-Morse.")
+print("Press 2. for File-to-Morse.")
+print("Type Quit to Quit")
+print("")
+  
+while True:
+    userInput = input("Enter Selection: ")
+    print("") 
+
+    if userInput == "Text":
+        print("You selected Text-to-Morse.")
+        print("Please type what you'd like to be encode to Morse Code")
+        text = input("Enter Text here: ")
+
+    if userInput == "File":
+        print("You selected File-to-Morse.")
+        print("Please type the file you'd like to encode to Morse Code")
+        fileName = input("File Name: ")
+        infile = fileName
+        with open(infile) as file:
+            for line in file:
+                print(line)
+    
+    if userInput != "File" or userInput != "Text":
+            print("Please enter a valid key!")
