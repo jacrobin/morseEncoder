@@ -1,0 +1,36 @@
+#pylint: disable=missing-final-newline
+#pi Morse encoder w/ buzzer tone
+#Reads a text file then encodes
+#each character into a buzz tone
+from gpiozero import Buzzer
+from time import sleep
+#buzzer = Buzzer(17)
+
+dotTU = .1
+dashTU = .3
+wordTU = .7
+ddTU = .1
+letterTU = .1
+
+while True:
+        for x in range(0,3):
+                buzzer.on()
+                sleep(dotTU)
+                buzzer.off()
+                sleep(dotTU)
+        buzzer.off()
+        sleep(ddTU)
+        for x in range(0,3):
+                buzzer.on()
+                sleep(dashTU)
+                buzzer.off()
+                sleep(dashTU)
+        buzzer.off()
+        sleep(ddTU)
+        for x in range(0,3): 
+                buzzer.on()
+                sleep(dotTU)
+                buzzer.off()
+                sleep(dashTU)
+        buzzer.off()
+        sleep(ddTU)
